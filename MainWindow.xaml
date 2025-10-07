@@ -1,0 +1,108 @@
+﻿<Window x:Name="TikTakToe" x:Class="Assignment2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment2"
+        mc:Ignorable="d"
+        Title="Tik Tak Toe" Height="800" Width="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+
+        <!-- Player X and textbox for inputting name -->
+        <Label Content="X Player: "
+               HorizontalAlignment="Left"
+               VerticalAlignment="Bottom"
+               Grid.Column="0"
+               Grid.Row="0"/>
+
+        <TextBox Text=""
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Bottom"
+                 Width="120"
+                 Margin="0,0,10,5"
+                 Grid.Column="0"
+                 Grid.Row="0"/>
+
+        <!-- Player O and textbox for inputting name -->
+        <Label
+            Content="O Player: "
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Grid.Column="1"
+            Grid.Row="0"/>
+
+        <TextBox Text=""
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Bottom"
+                 Width="120"
+                 Margin="0,0,10,5"
+                 Grid.Column="1"
+                 Grid.Row="0"/>
+
+        <!-- Current Player and display -->
+        <Label Content="Current Player: "
+               HorizontalAlignment="Left"
+               VerticalAlignment="Bottom"
+               Grid.Column="2"
+               Grid.Row="0"/>
+
+        <TextBox Text=""
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Bottom"
+                 Width="50"
+                 Margin="0,0,10,5"
+                 Grid.Column="2"
+                 Grid.Row="0"/>
+
+        <Label x:Name="LblScore"
+               Content="Score"
+               Grid.Column="3"
+               Grid.Row="1"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top" Margin="0,20,0,0" FontSize="16"/>
+
+        <Label x:Name="LblPlayerX"
+               Grid.Column="3"
+               Content="X: "
+               HorizontalAlignment="Left"
+               Margin="47,60,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top"/>
+
+
+        <Label x:Name="LblPlayerO"
+               Grid.Column="3"
+               Content="O: "
+               HorizontalAlignment="Left"
+               Margin="46,98,0,0"
+               Grid.Row="1"
+               VerticalAlignment="Top" RenderTransformOrigin="3.337,1.858"/>
+
+        <TextBox Grid.Column="3" HorizontalAlignment="Left" Margin="108,64,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50"/>
+        <TextBox Grid.Column="3" HorizontalAlignment="Left" Margin="108,102,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50"/>
+
+        <Button Grid.Column="3" Content="Reset" HorizontalAlignment="Center" Margin="0,60,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        <Button Grid.Column="3" Content="Exit" HorizontalAlignment="Left" Margin="91,119,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+
+
+
+
+    </Grid>
+
+</Window>
