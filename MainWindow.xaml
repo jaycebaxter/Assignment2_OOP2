@@ -8,6 +8,7 @@
         Title="Tik Tak Toe" Height="800" Width="800"
         WindowStartupLocation="CenterScreen">
 
+    <!-- Creating 4 equally sized rows and columns -->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -16,88 +17,216 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
-
         </Grid.RowDefinitions>
 
         <!-- Player X and textbox for inputting name -->
-        <Label Content="X Player: "
-               HorizontalAlignment="Left"
-               VerticalAlignment="Bottom"
-               Grid.Column="0"
-               Grid.Row="0"/>
+        <Label 
+            Name="LblXName"
+            Content="X Player: "
+            ToolTip="Player X's name: "
+            
+            Grid.Column="0"
+            Grid.Row="0"
+            
+            Height="25"
+            Width="Auto"
+            
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom" />
 
-        <TextBox Text=""
-                 HorizontalAlignment="Right"
-                 VerticalAlignment="Bottom"
-                 Width="120"
-                 Margin="0,0,10,5"
-                 Grid.Column="0"
-                 Grid.Row="0"/>
+        <TextBox 
+            Name="TxtXNameInput"
+            Text=""
+            ToolTip="Input player X's name"
+            
+            Grid.Column="0"
+            Grid.Row="0"
+            
+            Height="Auto"
+            Width="120"
+            Margin="0, 0, 10, 5"
+            
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom" />
 
         <!-- Player O and textbox for inputting name -->
-        <Label
+        <Label 
+            Name="LblOName"
             Content="O Player: "
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
+            ToolTip="Player O's name: "
+            
             Grid.Column="1"
-            Grid.Row="0"/>
+            Grid.Row="0"
+            
+            Height="25"
+            Width="Auto"
+            
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom" />
 
-        <TextBox Text=""
-                 HorizontalAlignment="Right"
-                 VerticalAlignment="Bottom"
-                 Width="120"
-                 Margin="0,0,10,5"
-                 Grid.Column="1"
-                 Grid.Row="0"/>
+        <TextBox 
+            Name="TxtONameInput"
+            Text=""
+            ToolTip="Input player O's name"
+            
+            Grid.Column="1"
+            Grid.Row="0"
+            
+            Height="Auto"
+            Width="120"
+            Margin="0, 0, 10, 5"
+            
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"/>
 
-        <!-- Current Player and display -->
-        <Label Content="Current Player: "
-               HorizontalAlignment="Left"
-               VerticalAlignment="Bottom"
-               Grid.Column="2"
-               Grid.Row="0"/>
+        <!-- Current player and display -->
+        <Label 
+            Name="LblCurrentPlayer"
+            Content="Current Player: "
+            ToolTip="It is this player's turn: "
+            
+            Grid.Column="2"
+            Grid.Row="0"
+            
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom" />
 
-        <TextBox Text=""
-                 HorizontalAlignment="Right"
-                 VerticalAlignment="Bottom"
-                 Width="50"
-                 Margin="0,0,10,5"
-                 Grid.Column="2"
-                 Grid.Row="0"/>
+        <TextBox
+            Name="TxtCurrentPlayer"
+            Text=""
+            ToolTip="Displays the current player"
+            
+            Grid.Column="2"
+            Grid.Row="0"
+            
+            Height="Auto"
+            Width="50"
+            Margin="0, 0, 10, 5"
+            
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom" />
 
-        <Label x:Name="LblScore"
-               Content="Score"
-               Grid.Column="3"
-               Grid.Row="1"
-               HorizontalAlignment="Center"
-               VerticalAlignment="Top" Margin="0,20,0,0" FontSize="16"/>
+        <!-- Creating a nested grid so I can sort my scoreboard better
+             https://stackoverflow.com/questions/3185485/grid-inside-grid-in-xaml -->
+        <Grid Grid.Column="3" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <Label x:Name="LblPlayerX"
-               Grid.Column="3"
-               Content="X: "
-               HorizontalAlignment="Left"
-               Margin="47,60,0,0"
-               Grid.Row="1"
-               VerticalAlignment="Top"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Score label -->
+            <Label 
+                Name="LblScore"
+                Content="Score"
+                ToolTip="Score label"
+            
+                FontSize="16"
+                
+                Height="Auto"
+                Width="Auto"
+                Margin="0, 20, 0, 0"
+            
+                Grid.Column="2"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+            
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" />
+
+            <!-- Label for player X's score -->
+            <Label 
+                Name="LblXScore"
+                Content="X: "
+                ToolTip="Player X's score: "
+            
+                FontSize="16"
+            
+                Grid.Column="3"
+                Grid.Row="1"
+            
+                Height="Auto"
+                Width="Auto"
+                Margin="40, 60, 0, 0"
+            
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+
+            <!-- Label for player O's score -->
+            <Label 
+                Name="LblOScore"
+                Content="O: "
+
+                FontSize="16"
+            
+                Grid.Column="3"
+                Grid.Row="1"
+            
+                Height="Auto"
+                Width="Auto"
+                Margin="40, 100, 0, 0"
+            
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+
+            <!-- Textbox that displays player X's score -->
+            <TextBox 
+                Name="TxtXScoreDisplay"
+                Text=""
+                ToolTip="Player X's Score"
+            
+                TextWrapping="Wrap" 
+
+                Grid.Column="3" 
+                Grid.Row="1"
+            
+                Height="Auto"
+                Width="50"
+                Margin="110,60,0,0" 
+
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" />
+
+            <!-- Textbox that displays player O's score -->
+            <TextBox 
+                Name="TxtOScoreDisplay"
+                Text=""
+                ToolTip="Player O's score"
+            
+                TextWrapping="Wrap"
+            
+                Grid.Column="3"
+                Grid.Row="1"
+            
+                Height="Auto"
+                Width="50"
+                Margin="110,100,0,0"
+            
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top" />
+            </Grid>
 
 
-        <Label x:Name="LblPlayerO"
-               Grid.Column="3"
-               Content="O: "
-               HorizontalAlignment="Left"
-               Margin="46,98,0,0"
-               Grid.Row="1"
-               VerticalAlignment="Top" RenderTransformOrigin="3.337,1.858"/>
-
-        <TextBox Grid.Column="3" HorizontalAlignment="Left" Margin="108,64,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50"/>
-        <TextBox Grid.Column="3" HorizontalAlignment="Left" Margin="108,102,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="50"/>
-
+        <!-- Reset button -->
         <Button Grid.Column="3" Content="Reset" HorizontalAlignment="Center" Margin="0,60,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+        
+        <!-- Exit button -->
         <Button Grid.Column="3" Content="Exit" HorizontalAlignment="Left" Margin="91,119,0,0" Grid.Row="3" VerticalAlignment="Top"/>
 
 
