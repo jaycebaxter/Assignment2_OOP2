@@ -17,7 +17,6 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -38,7 +37,7 @@
             Width="Auto"
             
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom" />
+            VerticalAlignment="Center" />
 
         <TextBox 
             Name="TxtXNameInput"
@@ -53,7 +52,7 @@
             Margin="0, 0, 10, 5"
             
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom" />
+            VerticalAlignment="Center" />
 
         <!-- Player O and textbox for inputting name -->
         <Label 
@@ -68,7 +67,7 @@
             Width="Auto"
             
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom" />
+            VerticalAlignment="Center" />
 
         <TextBox 
             Name="TxtONameInput"
@@ -83,7 +82,7 @@
             Margin="0, 0, 10, 5"
             
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom"/>
+            VerticalAlignment="Center"/>
 
         <!-- Current player and display -->
         <Label 
@@ -95,7 +94,7 @@
             Grid.Row="0"
             
             HorizontalAlignment="Left"
-            VerticalAlignment="Bottom" />
+            VerticalAlignment="Center" />
 
         <TextBox
             Name="TxtCurrentPlayer"
@@ -110,7 +109,7 @@
             Margin="0, 0, 10, 5"
             
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom" />
+            VerticalAlignment="Center" />
 
         <!-- Creating a nested grid so I can sort my scoreboard better
              https://stackoverflow.com/questions/3185485/grid-inside-grid-in-xaml -->
@@ -137,15 +136,15 @@
                 Content="Score"
                 ToolTip="Score label"
             
-                FontSize="16"
+                FontSize="14"
                 
                 Height="Auto"
                 Width="Auto"
-                Margin="0, 20, 0, 0"
+                Margin="0,10,0,0"
             
-                Grid.Column="2"
+                Grid.Column="1"
                 Grid.Row="0"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
             
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top" />
@@ -156,34 +155,34 @@
                 Content="X: "
                 ToolTip="Player X's score: "
             
-                FontSize="16"
+                FontSize="12"
             
-                Grid.Column="3"
+                Grid.Column="1"
                 Grid.Row="1"
             
                 Height="Auto"
                 Width="Auto"
-                Margin="40, 60, 0, 0"
+                Margin="0, 0, 0, 0"
             
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" />
 
             <!-- Label for player O's score -->
             <Label 
                 Name="LblOScore"
                 Content="O: "
 
-                FontSize="16"
+                FontSize="12"
             
-                Grid.Column="3"
-                Grid.Row="1"
+                Grid.Column="1"
+                Grid.Row="3"
             
                 Height="Auto"
                 Width="Auto"
-                Margin="40, 100, 0, 0"
+                Margin="0, 0, 0, 0"
             
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top" />
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" />
 
             <!-- Textbox that displays player X's score -->
             <TextBox 
@@ -197,10 +196,10 @@
                 Grid.Row="1"
             
                 Height="Auto"
-                Width="50"
-                Margin="110,60,0,0" 
+                Width="40"
+                Margin="0,17,0,0" 
 
-                HorizontalAlignment="Left" 
+                HorizontalAlignment="Center" 
                 VerticalAlignment="Top" />
 
             <!-- Textbox that displays player O's score -->
@@ -212,26 +211,232 @@
                 TextWrapping="Wrap"
             
                 Grid.Column="3"
-                Grid.Row="1"
+                Grid.Row="3"
             
                 Height="Auto"
-                Width="50"
-                Margin="110,100,0,0"
+                Width="40"
+                Margin="0,17,0,0"
             
-                HorizontalAlignment="Left"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Top" />
-            </Grid>
+        </Grid>
 
+        <!-- Nested grid for the reset / exit buttons -->
+        <Grid Grid.Column="3" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-        <!-- Reset button -->
-        <Button Grid.Column="3" Content="Reset" HorizontalAlignment="Center" Margin="0,60,0,0" Grid.Row="3" VerticalAlignment="Top"/>
-        
-        <!-- Exit button -->
-        <Button Grid.Column="3" Content="Exit" HorizontalAlignment="Left" Margin="91,119,0,0" Grid.Row="3" VerticalAlignment="Top"/>
+            <!-- Choose starting player button -->
+            <Button
+                Name="BtnChooseStart"
+                Content="_Choose Starting Player"
+                ToolTip="Press to choose who starts, or press C"
+                
+                FontSize="26"
+                
+                Grid.Column="0"
+                Grid.Row="0"
+                
+                Height="Auto"
+                Width="Auto"
+                Margin="10, 10, 10, 10"
+                
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Click="BtnChooseStart_Click" />
+            <!-- Reset button -->
+            <Button 
+                Name="BtnReset"
+                Content="_Reset"
+                ToolTip="Press to reset the game, or press R"
+                TabIndex="3"
+                
+                FontSize="26"
+                
+                Grid.Column="0"
+                Grid.Row="1"
+                
+                Height="Auto"
+                Width="Auto"
+                Margin="10, 10, 10, 10"
+                
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Click="BtnReset_Click" />
 
+            <!-- Exit button -->
+            <Button
+                Name="BtnExit"
+                Content="E_xit"
+                ToolTip="Press to exit the program, or press X"
+                TabIndex="4"
+                
+                FontSize="26"
+                
+                Grid.Column="0"
+                Grid.Row="2"
+                
+                Height="Auto"
+                Width="Auto"
+                Margin="10, 10, 10, 10"
+                
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch" Click="BtnExit_Click" />
+        </Grid>
 
+        <!-- 3x3 grid of buttons to add X/O to -->
+        <Button
+            Name="BtnGrid1"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="0"
+            Grid.Row="1"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid1_Click" />
 
+        <Button
+            Name="BtnGrid2"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="1"
+            Grid.Row="1"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid2_Click" />
 
+        <Button
+            Name="BtnGrid3"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="2"
+            Grid.Row="1"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid3_Click" />
+
+        <Button
+            Name="BtnGrid4"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="0"
+            Grid.Row="2"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid4_Click" />
+
+        <Button
+            Name="BtnGrid5"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="1"
+            Grid.Row="2"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid5_Click" />
+
+        <Button
+            Name="BtnGrid6"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="2"
+            Grid.Row="2"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid6_Click" />
+
+        <Button
+            Name="BtnGrid7"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="0"
+            Grid.Row="3"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid7_Click" />
+
+        <Button
+            Name="BtnGrid8"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="1"
+            Grid.Row="3"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid8_Click" />
+
+        <Button
+            Name="BtnGrid9"
+            Content=""
+            ToolTip="Click to add your marker"
+            
+            FontSize="72"
+            
+            Grid.Column="2"
+            Grid.Row="3"
+            
+            Height="Auto"
+            Width="Auto"
+            Margin="10, 10, 10, 10"
+            
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" Click="BtnGrid9_Click" />
     </Grid>
-
 </Window>
