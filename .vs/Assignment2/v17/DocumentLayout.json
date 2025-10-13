@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Jayce\\source\\repos\\Assignment2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|c:\\users\\jayce\\source\\repos\\assignment2\\mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|solutionrelative:mainwindow.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|c:\\users\\jayce\\source\\repos\\assignment2\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|c:\\users\\jayce\\source\\repos\\assignment2\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|c:\\users\\jayce\\source\\repos\\assignment2\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{106877E4-9FBC-4F8C-9043-B137815B331D}|Assignment2.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,34 +38,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Jayce\\source\\repos\\Assignment2\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Jayce\\source\\repos\\Assignment2\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAIwFkAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAswEkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-07T17:32:35.453Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Jayce\\source\\repos\\Assignment2\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Jayce\\source\\repos\\Assignment2\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
-              "ViewState": "AgIAAJ8BAAAAAAAAAAAnwKUBAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-10-12T01:28:01.938Z",
               "EditorCaption": ""
             }
           ]
