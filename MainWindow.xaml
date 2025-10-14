@@ -1,4 +1,9 @@
-﻿<Window x:Name="TikTakToe" x:Class="Assignment2.MainWindow"
+﻿<!-- Program:     Tik Tac Toe
+     Author:      Jayce Baxter-Johnson
+     Date:        October 14th, 2025
+     Description: Simple tik tac toe board -->
+    
+    <Window x:Name="TikTakToe" x:Class="Assignment2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

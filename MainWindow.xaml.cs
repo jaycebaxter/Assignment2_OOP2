@@ -1,4 +1,10 @@
-﻿using Microsoft.VisualBasic;
+﻿// Program:     Tik Tac Toe
+// Author:      Jayce Baxter-Johnson
+// Date:        October 14th, 2025
+// Description: Simple tik tac toe board
+
+using Microsoft.VisualBasic;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,8 +29,15 @@ namespace Assignment2
         string[,] board = new string[BOARD_ROWS, BOARD_COLUMNS];
 
         // Setting current player to default to nothing
-        public string currentPlayer = "";
-        
+        private string currentPlayer = "";
+
+        // Setting the scores to 0 for the beginning
+        private int playerXScore = 0;
+        private int playerOScore = 0;
+
+        // Setting the winner to null for now
+        string winner = "";
+
         // Initializing random logic that we will use in the "choose current player" button
         Random myRandom = new Random();
 
@@ -42,18 +55,53 @@ namespace Assignment2
             BtnGrid9.IsEnabled = false;
         }
 
+        // Adds up the score depending on the winner
+        public void AddScores()
+        {
+            if (winner == "X")
+            {
+                playerXScore = playerXScore + 1;
+                TxtXScoreDisplay.Text = playerXScore.ToString();
+            }
+            else if (winner == "O")
+            {
+                playerOScore = playerOScore + 1;
+                TxtOScoreDisplay.Text = playerOScore.ToString();
+            }
+        }
+
+        // this not workingggggggg lol
+
+        //public bool CheckDraw()
+        //{
+        //    if (BtnGrid1.Content != "" &&
+        //        BtnGrid2.Content != "" &&
+        //        BtnGrid3.Content != "" &&
+        //        BtnGrid4.Content != "" &&
+        //        BtnGrid5.Content != "" &&
+        //        BtnGrid6.Content != "" &&
+        //        BtnGrid7.Content != "" &&
+        //        BtnGrid8.Content != "" &&
+        //        BtnGrid9.Content != "")
+        //    {
+        //        MessageBox.Show("It's a draw!");
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
         // Checks if there has been a winner in the rows
         public bool CheckRows()
         {
-            string winner = "";
-
             // Checking rows
             for (int row = 0; row < BOARD_ROWS; row++) {
                 if (board [row, 0] != "" && board[row, 0] == board[row, 1] && board[row, 2] == board[row, 1])
                 {
                     winner = currentPlayer;
                     MessageBox.Show(currentPlayer + " is the winner!");
+                    AddScores();
                     DisableButtons();
+                    FillNullArray();
                     return true;
                 }
             }
@@ -63,14 +111,16 @@ namespace Assignment2
         // Checks if there has been a winner in the columns
         public bool CheckColumns()
         {
-            string winner = "";
+            winner = "";
             for (int column = 0; column < BOARD_COLUMNS; column++)
             {
                 if (board[0, column] != "" && board[0, column] == board[1, column] && board[1, column] == board[2, column])
                 {
                     winner = currentPlayer;
                     MessageBox.Show(currentPlayer + " is the winner!");
+                    AddScores();
                     DisableButtons();
+                    FillNullArray();
                     return true;
                 }
             }
@@ -78,15 +128,15 @@ namespace Assignment2
         }
 
         // Checks if there has been a winner diagonally
-
         public bool CheckDiagonal()
         {
-            string winner = "";
             if (board[0, 0] != "" && board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2])
             {
                 winner = currentPlayer;
                 MessageBox.Show(currentPlayer + " is the winner!");
+                AddScores();
                 DisableButtons();
+                FillNullArray();
                 return true;
             }
 
@@ -94,6 +144,7 @@ namespace Assignment2
             {
                 winner = currentPlayer;
                 MessageBox.Show(currentPlayer + " is the winner!");
+                AddScores();
                 DisableButtons();
                 return true;
             }
@@ -118,11 +169,8 @@ namespace Assignment2
                 TxtCurrentPlayer.Text = currentPlayer;
             }
         }
-
-        public MainWindow()
+        private void FillNullArray()
         {
-            InitializeComponent();
-
             // Filling array with null values because it's throwing an error I don't know
             for (int fillingRow = 0; fillingRow < BOARD_ROWS; fillingRow++)
             {
@@ -133,84 +181,182 @@ namespace Assignment2
             }
         }
 
+        public MainWindow()
+        {
+            InitializeComponent();
+            FillNullArray();
+        }
+
+        // Event handlers for all of the 3x3 grid clicks
         private void BtnGrid1_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid1.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid1.Content = currentPlayer;
+                BtnGrid1.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid1.IsEnabled = true;
+            }
+
             board[0, 0] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid2_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid2.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid2.Content = currentPlayer;
+                BtnGrid2.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid2.IsEnabled = true;
+            }
             board[0, 1] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid3_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid3.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid3.Content = currentPlayer;
+                BtnGrid3.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid3.IsEnabled = true;
+            }
             board[0, 2] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid4_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid4.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid4.Content = currentPlayer;
+                BtnGrid4.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid4.IsEnabled = true;
+            }
             board[1, 0] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid5_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid5.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid5.Content = currentPlayer;
+                BtnGrid5.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid5.IsEnabled = true;
+            }
             board[1, 1] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid6_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid6.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid6.Content = currentPlayer;
+                BtnGrid6.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid6.IsEnabled = true;
+            }
             board[1, 2] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid7_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid7.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid7.Content = currentPlayer;
+                BtnGrid7.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid7.IsEnabled = true;
+            }
             board[2, 0] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid8_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid8.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid8.Content = currentPlayer;
+                BtnGrid8.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid8.IsEnabled = true;
+            }
             board[2, 1] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
         private void BtnGrid9_Click(object sender, RoutedEventArgs e)
         {
-            BtnGrid9.Content = currentPlayer;
+            if (currentPlayer != "")
+            {
+                BtnGrid9.Content = currentPlayer;
+                BtnGrid9.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Please select a starting player");
+                BtnGrid9.IsEnabled = true;
+            }
             board[2, 2] = currentPlayer;
             CheckRows();
             CheckColumns();
+            CheckDiagonal();
             ChangePlayer();
         }
 
@@ -242,8 +388,15 @@ namespace Assignment2
             BtnGrid8.Content = "";
             BtnGrid9.Content = "";
 
-            TxtXScoreDisplay.Text = "";
-            TxtOScoreDisplay.Text = "";
+            BtnGrid1.IsEnabled = true;
+            BtnGrid2.IsEnabled = true;
+            BtnGrid3.IsEnabled = true;
+            BtnGrid4.IsEnabled = true;
+            BtnGrid5.IsEnabled = true;
+            BtnGrid6.IsEnabled = true;
+            BtnGrid7.IsEnabled = true;
+            BtnGrid8.IsEnabled = true;
+            BtnGrid9.IsEnabled = true;
 
             TxtXNameInput.Text = "";
             TxtONameInput.Text = "";
