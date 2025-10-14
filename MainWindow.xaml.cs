@@ -25,7 +25,6 @@ namespace Assignment2
         const int BOARD_ROWS = 3;
         const int BOARD_COLUMNS = 3;
         
-        // Creating array
         string[,] board = new string[BOARD_ROWS, BOARD_COLUMNS];
 
         // Setting current player to default to nothing
@@ -68,27 +67,31 @@ namespace Assignment2
                 playerOScore = playerOScore + 1;
                 TxtOScoreDisplay.Text = playerOScore.ToString();
             }
+            else
+            {
+                return;
+            }
         }
 
         // this not workingggggggg lol
 
-        //public bool CheckDraw()
-        //{
-        //    if (BtnGrid1.Content != "" &&
-        //        BtnGrid2.Content != "" &&
-        //        BtnGrid3.Content != "" &&
-        //        BtnGrid4.Content != "" &&
-        //        BtnGrid5.Content != "" &&
-        //        BtnGrid6.Content != "" &&
-        //        BtnGrid7.Content != "" &&
-        //        BtnGrid8.Content != "" &&
-        //        BtnGrid9.Content != "")
-        //    {
-        //        MessageBox.Show("It's a draw!");
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        public bool CheckDraw()
+        {
+            if (BtnGrid1.Content != "" &&
+                BtnGrid2.Content != "" &&
+                BtnGrid3.Content != "" &&
+                BtnGrid4.Content != "" &&
+                BtnGrid5.Content != "" &&
+                BtnGrid6.Content != "" &&
+                BtnGrid7.Content != "" &&
+                BtnGrid8.Content != "" &&
+                BtnGrid9.Content != "")
+            {
+                MessageBox.Show("It's a draw!");
+                return true;
+            }
+            return false;
+        }
 
         // Checks if there has been a winner in the rows
         public bool CheckRows()
@@ -98,7 +101,7 @@ namespace Assignment2
                 if (board [row, 0] != "" && board[row, 0] == board[row, 1] && board[row, 2] == board[row, 1])
                 {
                     winner = currentPlayer;
-                    WinnerName();
+                    DisplayWinnerName();
                     AddScores();
                     DisableButtons();
                     FillNullArray();
@@ -117,7 +120,7 @@ namespace Assignment2
                 if (board[0, column] != "" && board[0, column] == board[1, column] && board[1, column] == board[2, column])
                 {
                     winner = currentPlayer;
-                    WinnerName();
+                    DisplayWinnerName();
                     AddScores();
                     DisableButtons();
                     ResetAll();
@@ -134,7 +137,7 @@ namespace Assignment2
             if (board[0, 0] != "" && board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2])
             {
                 winner = currentPlayer;
-                WinnerName();
+                DisplayWinnerName();
                 AddScores();
                 DisableButtons();
                 ResetAll();
@@ -145,7 +148,7 @@ namespace Assignment2
             else if (board[0, 2] != "" && board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0])
             {
                 winner = currentPlayer;
-                WinnerName();
+                DisplayWinnerName();
                 AddScores();
                 DisableButtons();
                 ResetAll();
@@ -158,7 +161,7 @@ namespace Assignment2
         }
 
         // Get winner name
-        private void WinnerName()
+        private void DisplayWinnerName()
         {
             if (winner == "X")
             {
@@ -201,7 +204,7 @@ namespace Assignment2
             }
         }
 
-        // Checking that names have been set 
+        // Checking that names have been set this does nothing Lol
         private void CheckNames()
         {
             if (TxtXNameInput.Text == "" ||  TxtONameInput.Text == "")
@@ -234,6 +237,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -253,6 +257,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -272,6 +277,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -291,6 +297,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -310,6 +317,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -329,6 +337,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -348,6 +357,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -367,6 +377,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
@@ -386,6 +397,7 @@ namespace Assignment2
             CheckRows();
             CheckColumns();
             CheckDiagonal();
+            CheckDraw();
             ChangePlayer();
         }
 
