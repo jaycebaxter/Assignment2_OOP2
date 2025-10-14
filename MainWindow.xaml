@@ -10,8 +10,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment2"
         mc:Ignorable="d"
-        Title="Tik Tak Toe" Height="800" Width="800"
-        WindowStartupLocation="CenterScreen">
+        Title="Tik Tak Toe" Height="700" Width="850"
+        MinHeight="700" MinWidth="800"
+        WindowStartupLocation="CenterScreen"
+        Background="#cce5ff">
 
     <!-- Creating 4 equally sized rows and columns -->
     <Grid>
@@ -23,7 +25,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -42,12 +44,13 @@
             Width="Auto"
             
             HorizontalAlignment="Left"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Bottom" />
 
         <TextBox 
             Name="TxtXNameInput"
             Text=""
             ToolTip="Input player X's name"
+            TabIndex="0"
             
             Grid.Column="0"
             Grid.Row="0"
@@ -57,7 +60,7 @@
             Margin="0, 0, 10, 5"
             
             HorizontalAlignment="Right"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Bottom" />
 
         <!-- Player O and textbox for inputting name -->
         <Label 
@@ -72,12 +75,13 @@
             Width="Auto"
             
             HorizontalAlignment="Left"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Bottom" />
 
         <TextBox 
             Name="TxtONameInput"
             Text=""
             ToolTip="Input player O's name"
+            TabIndex="1"
             
             Grid.Column="1"
             Grid.Row="0"
@@ -87,7 +91,7 @@
             Margin="0, 0, 10, 5"
             
             HorizontalAlignment="Right"
-            VerticalAlignment="Center"/>
+            VerticalAlignment="Bottom"/>
 
         <!-- Current player and display -->
         <Label 
@@ -99,12 +103,14 @@
             Grid.Row="0"
             
             HorizontalAlignment="Left"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Bottom" />
 
         <TextBox
             Name="TxtCurrentPlayer"
             Text=""
             ToolTip="Displays the current player"
+            IsReadOnly="True"
+            IsTabStop="False"
             
             Grid.Column="2"
             Grid.Row="0"
@@ -114,7 +120,7 @@
             Margin="0, 0, 10, 5"
             
             HorizontalAlignment="Right"
-            VerticalAlignment="Center" />
+            VerticalAlignment="Bottom" />
 
         <!-- Creating a nested grid so I can sort my scoreboard better
              https://stackoverflow.com/questions/3185485/grid-inside-grid-in-xaml -->
@@ -194,6 +200,8 @@
                 Name="TxtXScoreDisplay"
                 Text=""
                 ToolTip="Player X's Score"
+                IsReadOnly="True"
+                IsTabStop="False"
             
                 TextWrapping="Wrap" 
 
@@ -212,6 +220,8 @@
                 Name="TxtOScoreDisplay"
                 Text=""
                 ToolTip="Player O's score"
+                IsReadOnly="True"
+                IsTabStop="False"
             
                 TextWrapping="Wrap"
             
@@ -239,8 +249,9 @@
                 Name="BtnChooseStart"
                 Content="_Choose Starting Player"
                 ToolTip="Press to choose who starts, or press C"
+                TabIndex="2"
                 
-                FontSize="26"
+                FontSize="16"
                 
                 Grid.Column="0"
                 Grid.Row="0"
@@ -250,7 +261,10 @@
                 Margin="10, 10, 10, 10"
                 
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" Click="BtnChooseStart_Click" />
+                VerticalAlignment="Stretch" 
+                Click="BtnChooseStart_Click"
+                Background="#FFFFFF" />
+            
             <!-- Reset button -->
             <Button 
                 Name="BtnReset"
@@ -268,7 +282,9 @@
                 Margin="10, 10, 10, 10"
                 
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" Click="BtnReset_Click" />
+                VerticalAlignment="Stretch" 
+                Click="BtnReset_Click" 
+                Background="#FFFFFF" />
 
             <!-- Exit button -->
             <Button
@@ -287,7 +303,9 @@
                 Margin="10, 10, 10, 10"
                 
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" Click="BtnExit_Click" />
+                VerticalAlignment="Stretch" 
+                Click="BtnExit_Click" 
+                Background="#FFFFFF" />
         </Grid>
 
         <!-- 3x3 grid of buttons to add X/O to -->
@@ -295,6 +313,7 @@
             Name="BtnGrid1"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="5"
             
             FontSize="72"
             
@@ -306,12 +325,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid1_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid1_Click" 
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid2"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="6"
             
             FontSize="72"
             
@@ -323,12 +345,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid2_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid2_Click" 
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid3"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="7"
             
             FontSize="72"
             
@@ -340,12 +365,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid3_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid3_Click" 
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid4"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="8"
             
             FontSize="72"
             
@@ -357,12 +385,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid4_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid4_Click" 
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid5"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="9"
             
             FontSize="72"
             
@@ -374,12 +405,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid5_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid5_Click" 
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid6"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="10"
             
             FontSize="72"
             
@@ -391,12 +425,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid6_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid6_Click" 
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid7"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="11"
             
             FontSize="72"
             
@@ -408,12 +445,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid7_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid7_Click"
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid8"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="12"
             
             FontSize="72"
             
@@ -425,12 +465,15 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid8_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid8_Click" 
+            Background="#FFFFFF" />
 
         <Button
             Name="BtnGrid9"
             Content=""
             ToolTip="Click to add your marker"
+            TabIndex="13"
             
             FontSize="72"
             
@@ -442,6 +485,8 @@
             Margin="10, 10, 10, 10"
             
             HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch" Click="BtnGrid9_Click" />
+            VerticalAlignment="Stretch" 
+            Click="BtnGrid9_Click" 
+            Background="#FFFFFF" />
     </Grid>
 </Window>

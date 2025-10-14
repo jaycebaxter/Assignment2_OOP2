@@ -98,10 +98,11 @@ namespace Assignment2
                 if (board [row, 0] != "" && board[row, 0] == board[row, 1] && board[row, 2] == board[row, 1])
                 {
                     winner = currentPlayer;
-                    MessageBox.Show(currentPlayer + " is the winner!");
+                    WinnerName();
                     AddScores();
                     DisableButtons();
                     FillNullArray();
+                    ResetAll();
                     return true;
                 }
             }
@@ -111,15 +112,15 @@ namespace Assignment2
         // Checks if there has been a winner in the columns
         public bool CheckColumns()
         {
-            winner = "";
             for (int column = 0; column < BOARD_COLUMNS; column++)
             {
                 if (board[0, column] != "" && board[0, column] == board[1, column] && board[1, column] == board[2, column])
                 {
                     winner = currentPlayer;
-                    MessageBox.Show(currentPlayer + " is the winner!");
+                    WinnerName();
                     AddScores();
                     DisableButtons();
+                    ResetAll();
                     FillNullArray();
                     return true;
                 }
@@ -133,9 +134,10 @@ namespace Assignment2
             if (board[0, 0] != "" && board[0, 0] == board[1, 1] && board[1, 1] == board[2, 2])
             {
                 winner = currentPlayer;
-                MessageBox.Show(currentPlayer + " is the winner!");
+                WinnerName();
                 AddScores();
                 DisableButtons();
+                ResetAll();
                 FillNullArray();
                 return true;
             }
@@ -143,14 +145,32 @@ namespace Assignment2
             else if (board[0, 2] != "" && board[0, 2] == board[1, 1] && board[1, 1] == board[2, 0])
             {
                 winner = currentPlayer;
-                MessageBox.Show(currentPlayer + " is the winner!");
+                WinnerName();
                 AddScores();
                 DisableButtons();
+                ResetAll();
                 return true;
             }
             else
             {
                 return false;
+            }
+        }
+
+        // Get winner name
+        private void WinnerName()
+        {
+            if (winner == "X")
+            {
+                MessageBox.Show(TxtXNameInput.Text + " is the winner!");
+            }
+            else if (winner == "O")
+            {
+                MessageBox.Show(TxtONameInput.Text + " is the winner!");
+            }
+            else
+            {
+                return;
             }
         }
 
@@ -176,8 +196,17 @@ namespace Assignment2
             {
                 for (int fillingColumn = 0; fillingColumn < BOARD_COLUMNS; fillingColumn++)
                 {
-                    board[fillingColumn, fillingRow] = "";
+                    board[fillingRow, fillingColumn] = "";
                 }
+            }
+        }
+
+        // Checking that names have been set 
+        private void CheckNames()
+        {
+            if (TxtXNameInput.Text == "" ||  TxtONameInput.Text == "")
+            {
+                MessageBox.Show("Please enter your names");
             }
         }
 
@@ -376,7 +405,8 @@ namespace Assignment2
             }
         }
 
-        private void BtnReset_Click(object sender, RoutedEventArgs e)
+        // Making a reset function so I can reuse it
+        private void ResetAll()
         {
             BtnGrid1.Content = "";
             BtnGrid2.Content = "";
@@ -398,12 +428,14 @@ namespace Assignment2
             BtnGrid8.IsEnabled = true;
             BtnGrid9.IsEnabled = true;
 
-            TxtXNameInput.Text = "";
-            TxtONameInput.Text = "";
-
             TxtCurrentPlayer.Text = "";
 
             currentPlayer = "";
+            FillNullArray();
+        }
+        private void BtnReset_Click(object sender, RoutedEventArgs e)
+        {
+            ResetAll();
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
